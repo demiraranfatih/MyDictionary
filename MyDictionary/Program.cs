@@ -10,13 +10,14 @@ namespace MyDictionary
     {
         static void Main(string[] args)
         {
-            MyDictionary<string> myDictionary = new MyDictionary<string>();
+            MyDictionary<string,int> myDictionary = new MyDictionary<string,int>();
 
-            myDictionary.Add("Red");
-            myDictionary.Add("Yellow");
-            myDictionary.Add("Pink");
-            Console.WriteLine(myDictionary.Lengths);
+            myDictionary.Add("Value1", 1);
+            myDictionary.Add("Value2", 2);
+            myDictionary.Add("Value3", 3);
+            myDictionary.Add("Value4", 4);
             myDictionary.See();
+
         }
     }
 }

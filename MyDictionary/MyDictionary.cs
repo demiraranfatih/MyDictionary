@@ -6,33 +6,35 @@ using System.Threading.Tasks;
 
 namespace MyDictionary
 {
-    class MyDictionary<T>
+    class MyDictionary<I,T>
     {
-        T[] dictionary;
+        T[] tKey;
+        I[] vKey;
         public MyDictionary()
         {
-            dictionary = new T[0];
+            tKey = new T[0];
+            vKey = new I[0];
         }
-        public void Add(T item)
+        public void Add(I values , T key )
         {
-            T[] tempArray = dictionary;
-            dictionary = new T[dictionary.Length+1];
-            for (int i = 0; i <tempArray.Length; i++)
+            T[] tArray = tKey;
+            I[] vArray = vKey;
+            tKey = new T[tKey.Length+1];
+            vKey = new I[vKey.Length + 1];
+            for (int i = 0; i <tArray.Length; i++)
             {
-                dictionary[i] = tempArray[i];
+                tKey[i] = tArray[i];
+                vKey[i] = vArray[i];
             }
-            dictionary[dictionary.Length- 1] = item;
+            tKey[tKey.Length- 1] = key;
+            vKey[vKey.Length - 1] = values;
         }
         public void See()
         {
-            foreach (T x in dictionary)
+            for (int i = 0; i <tKey.Length; i++)
             {
-                Console.WriteLine(x);
+                Console.WriteLine(tKey[i]+" : "+vKey[i]);
             }
-        }
-       public int Lengths
-        {
-            get { return dictionary.Length; }
         }
     }
 }
